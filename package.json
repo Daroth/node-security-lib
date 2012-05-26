@@ -1,0 +1,15 @@
+{
+  "author": "Daroth <daroth@braindead.fr> (http://braindead.fr/)",
+  "name": "security-lib",
+  "description": "A node.js security library.",
+  "version": "0.0.0-alpha",
+  "homepage": "http://braindead.fr/",
+  "dependencies": { },
+  "devDependencies": {
+    "vows": "*"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "0.6.x"
+  }
+}
