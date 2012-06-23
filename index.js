@@ -8,7 +8,7 @@ var security = function () {
 
         charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         SEPARATOR = '$';
-        hashAlgotiyhmNames = ['md4', 'md5', 'rmd160', 'sha', 'sha1'];
+        hashAlgotiyhmNames = ['md4', 'md5', 'ripemd160', 'rmd160', 'sha', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512', 'whirlpool'];
 
         hashAlgorithms = function (name) {
             return crypto.createHash(name);
@@ -37,7 +37,7 @@ var security = function () {
         }
 
         function pickAChar() {
-            return charset[Math.round(Math.random() * charset.length)];
+            return charset[Math.floor(Math.random() * charset.length)];
         }
 
         function genSalt(length) {
@@ -67,7 +67,7 @@ var security = function () {
                 // of his own code, shame on him and be scared to
                 // use it unit this part be reviewed.
                 h = hashAlgorithms(method);
-                h.update(password + salt);
+                h.update(salt + password + salt);
                 ret = h.digest('hex');
             }
 
